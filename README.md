@@ -32,7 +32,7 @@ More reading on Sonarqube metrics can be read from [here](https://docs.sonarsour
 
 ### `metric-unit`
 
-Unit of metric used in report. Check this [link](Check https://docs.datadoghq.com/metrics/types/).
+Unit of metric used in report. Check this [link](https://docs.datadoghq.com/metrics/types/).
 
 ## Example Usage
 
