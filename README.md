@@ -39,6 +39,8 @@ Unit of metric used in report. Check this [link](Check https://docs.datadoghq.co
 ```yaml
 uses: yauritux/scm-dd-collector@v1.0
 with:
+    sonar-base-url: ${{ secrets.DD_SONAR_URL }}
+    datadog-base-url: ${{ secrets.DD_BASE_URL }}
     component-name: platform-api
     metric-name: coverage,code_smells,vulnerabilities,security_hotspots
     metric-type: 3
