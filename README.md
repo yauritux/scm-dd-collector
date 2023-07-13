@@ -37,7 +37,7 @@ Unit of metric used in report. Check this [link](Check https://docs.datadoghq.co
 ## Example Usage
 
 ```yaml
-uses: actions/scm-dd-collector@v1.0
+uses: yauritux/scm-dd-collector@v1.0
 with:
     component-name: platform-api
     metric-name: coverage,code_smells,vulnerabilities,security_hotspots
