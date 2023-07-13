@@ -1,0 +1,17 @@
+{
+  "name": "scm-dd-collector",
+  "version": "1.0.0",
+  "description": "collect and publish some code metrics from sonarqube to datadog",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js --license licenses.txt"
+  },
+  "keywords": [],
+  "author": "Yauri Attamimi <yauritux@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "axios": "^1.4.0"
+  }
+}

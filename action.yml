@@ -1,0 +1,34 @@
+name: 'sonar-code-metrics-collector'
+description: 'Collect and publish some code metrics from Sonarqube to Datadog'
+inputs:
+  sonar-base-url:
+    description: 'Your Sonarqube URL'
+    required: true
+  datadog-base-url:
+    description: 'Your Datadog URL'
+    required: true
+  component-name:
+    description: 'component name (could be a service / project name)'
+    required: true
+  metric-names:
+    description: 'List of metrics to be reported as separated by comma (e.g.: coverage,code_smells)'
+    required: true
+  metric-type:
+    description: 'type of metric (e.g.: gauge, count, rate, etc). Check: https://docs.datadoghq.com/metrics/types/. Alowed values are: 0 (unspecified), 1 (count), 2 (rate), and 3(gauge).'
+    required: true
+  metric-unit:
+    description: 'unit of metric (e.g.: percent, unit, fraction, millisecond, etc). Check https://docs.datadoghq.com/metrics/types/'
+    required: true
+    default: 'unit'
+  dd-api-key:
+    description: 'DataDog API KEY'
+    required: true
+  dd-application-key:
+    description: 'DataDog Application KEY'
+    required: true
+outputs:
+  result:
+    description: 'Your code metric report as requested'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
