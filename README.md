@@ -1,6 +1,6 @@
 # SCM-DD-COLLECTOR
 
-This is a simple GH custom action that is doing pretty simple job to fetch some code metrics reported by Sonarqube and publish it accordingly to Datadog.
+A GitHub custom action for doing a pretty simple job to fetch some code metrics reported by Sonarqube and publish it accordingly to Datadog.
 
 ## Inputs
 
@@ -19,11 +19,11 @@ This is a simple GH custom action that is doing pretty simple job to fetch some 
 ### `metric-names`
 
 **Required** List of code metric names separated by comma (if more than one metric).
-More reading on Sonarqube metrics can be read from [here](https://docs.sonarsource.com/sonarqube/latest/user-guide/metric-definitions/).
+More reading on Sonarqube metrics can be checked from [here](https://docs.sonarsource.com/sonarqube/latest/user-guide/metric-definitions/).
 
 ### `metric-type`
 
-**Required** Type of metric used in report. Only support enum values as following:
+**Required** Type of metric used in report. Only support enum values as follow:
 
 -   0 (unspecified)
 -   1 (count)
@@ -32,7 +32,7 @@ More reading on Sonarqube metrics can be read from [here](https://docs.sonarsour
 
 ### `metric-unit`
 
-Unit of metric used in report. Check this [link](https://docs.datadoghq.com/metrics/types/).
+Unit of metric to be used in report. Check this [link](https://docs.datadoghq.com/metrics/types/).
 
 ## Example Usage
 
