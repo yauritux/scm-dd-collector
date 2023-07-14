@@ -11,11 +11,13 @@ inputs:
     description: 'component name (could be a service / project name)'
     required: true
   metric-names:
-    description: 'List of metrics to be reported as separated by comma (e.g.: coverage,code_smells)'
+    description: 'List of metrics to be reported as separated by comma (e.g.: coverage,code_smells,vulnerabilities)'
     required: true
+    default: 'coverage'
   metric-type:
     description: 'type of metric (e.g.: gauge, count, rate, etc). Check: https://docs.datadoghq.com/metrics/types/. Alowed values are: 0 (unspecified), 1 (count), 2 (rate), and 3(gauge).'
     required: true
+    default: 'count'
   metric-unit:
     description: 'unit of metric (e.g.: percent, unit, fraction, millisecond, etc). Check https://docs.datadoghq.com/metrics/types/'
     required: true
