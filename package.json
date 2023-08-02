@@ -1,10 +1,11 @@
 {
   "name": "scm-dd-collector",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Action that collect and publish some code metrics from Sonarqube to Datadog",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "build-prod": "ncc build src/index.ts -o dist"
   },
   "keywords": [],
   "author": "Yauri Attamimi (https://yauritux.link)",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.5",
+    "@vercel/ncc": "^0.36.1",
     "typescript": "^5.1.6"
   }
 }
