@@ -16,10 +16,6 @@ A GitHub custom action for doing a pretty simple job to fetch some code metrics 
 
 **Required** Your DataDog API Key. Get it from your DataDog subscription.
 
-### `dd-application-key`
-
-**Required** Your DataDog Application Key. Get it from your DataDog subscription.
-
 ### `component-name`
 
 **Required** The component name (could be a project name or a service name).
@@ -45,7 +41,7 @@ Unit of metric to be used in report. Check this [link](https://docs.datadoghq.co
 ## Example Usage
 
 ```yaml
-uses: yauritux/scm-dd-collector@v1.0
+uses: yauritux/scm-dd-collector@v1.2
 with:
   sonar-base-url: ${{ secrets.DD_SONAR_URL }}
   datadog-base-url: ${{ secrets.DD_BASE_URL }}
@@ -54,5 +50,4 @@ with:
   metric-type: 3
   metric-unit: percent
   dd-api-key: ${{ secrets.DD_API_KEY}}
-  dd-application-key: ${{ secrets.DD_APPLICATION_KEY }}
 ```

@@ -25,9 +25,6 @@ inputs:
   dd-api-key:
     description: 'DataDog API KEY'
     required: true
-  dd-application-key:
-    description: 'DataDog Application KEY'
-    required: true
 outputs:
   result:
     description: 'Your code metric report as requested'
