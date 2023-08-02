@@ -1,26 +1,28 @@
-const core = require('@actions/core');
+import { getInput, setOutput, setFailed } from "@actions/core";
+import { DataDogSeriesPayload, SonarComponentMeasures } from "./types";
 const axios = require('axios');
 
-async function bootstrap() {
+export default async function bootstrap() {
   try {
-    const sonarUrl = core.getInput('sonar-base-url');
-    const ddUrl = core.getInput('datadog-base-url');
-    const component = core.getInput('component-name');
-    const metricNames = core.getInput('metric-names');
-    const metricType = core.getInput('metric-type');
-    const metricUnit = core.getInput('metric-unit');
-    const ddApikey = core.getInput('dd-api-key');
-    const ddApplicationKey = core.getInput('dd-application-key');
-    const sonarResponse = await axios.get(`${sonarUrl}/api/measures/component?component=${component}&metricKeys=${metricNames}`)
-    console.log(JSON.stringify(sonarResponse.data, null, 2));
+    const sonarUrl = getInput('sonar-base-url')
+    const ddUrl = getInput('datadog-base-url')
+    const component = getInput('component-name')
+    const metricNames = getInput('metric-names')
+    const metricType = getInput('metric-type')
+    const metricUnit = getInput('metric-unit')
+    const ddApikey = getInput('dd-api-key')
+    const ddApplicationKey = getInput('dd-application-key')
+    const sonarResponse = 
+      await axios.get(`${sonarUrl}/api/measures/component?component=${component}&metricKeys=${metricNames}`)
+    console.log(JSON.stringify(sonarResponse.data, null, 2))
     const pattern = /[-$.+#)]/g;
-    const payloadSeries = [];
-    sonarResponse.data.component.measures.forEach(record => {
+    const payloadSeries: DataDogSeriesPayload[] = [];
+    sonarResponse.data.component.measures.forEach((record: SonarComponentMeasures) => {
       payloadSeries.push({
         "metric": sonarResponse.data.component.key.replace(pattern, '_') + "_" + record.metric.replace(pattern, "_"),
         "points": [{
           "timestamp": Math.floor(Date.now() / 1000),
-          "value": record.value
+          "value": record?.value
         }],
         "resources": [{
           "name": sonarResponse.data.component.key,
@@ -49,11 +51,9 @@ async function bootstrap() {
       }
     });
     console.log('datadog submit response data=', ddResponse.data);
-    core.setOutput('status', ddResponse.status);
-    core.setOutput('data', ddResponse.data);
-  } catch (error) {
-    core.setFailed(error.message);
+    setOutput('status', ddResponse.status);
+    setOutput('data', ddResponse.data);
+  } catch (error: any) {
+    setFailed(error?.message);
   }
 }
-
-bootstrap();
