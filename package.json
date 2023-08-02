@@ -2,7 +2,7 @@
   "name": "scm-dd-collector",
   "version": "1.1.0",
   "description": "Action that collect and publish some code metrics from Sonarqube to Datadog",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json"
   },
