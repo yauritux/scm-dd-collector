@@ -14,6 +14,15 @@ export type DataDogSeriesPayload = {
   unit: string
 }
 
+export type SonarComponentMetric = {
+  component: {
+    key: string
+    name: string
+    qualifier: string
+    measures: SonarComponentMeasures[]
+  }
+}
+
 export type SonarComponentMeasures = {
   metric: string
   periods?: {
